@@ -1,0 +1,72 @@
+// possible deadlock test case
+// possible deadlock test case
+// Two write transactions
+// Two write transactions
+log ddlk_3Tx.log
+Log file name:ddlk_3Tx.log
+
+// op	Tx#	type
+// op	Tx#	type
+BeginTx 1 W
+BeginTx : 1
+
+TxType : W
+
+// op	Tx#	Obj
+// op	Tx#	Obj
+Read 1 1
+Read : 1 : 1
+
+Write 1 2
+Write : 1 : 2
+
+Read 1 6
+Read : 1 : 6
+
+BeginTx 2 W
+BeginTx : 2
+
+TxType : W
+
+Read 2 2
+Read : 2 : 2
+
+Write 2 1
+Write : 2 : 1
+
+Read 2 7
+Read : 2 : 7
+
+commit 2
+Commit : 2
+
+Commit 1
+Commit : 2
+
+begintx 3 R
+BeginTx : 3
+
+TxType : R
+
+read 3 2
+Read : 3 : 2
+
+write 3 1
+Write : 3 : 1
+
+read 3 2
+Read : 3 : 2
+
+end all
+Release all resources and exit:
+
+Wait for threads and cleanup
+Thread 0 completed with ret value: 0
+:::Current Tx lock mode : S , Old Tx lock mode : S ,No of Transactions Waiting : 0 
+:::Current Tx lock mode : X , Old Tx lock mode : S ,No of Transactions Waiting : 0 
+:::Tx2 is waiting on Tx1 for object no 1 
+:::Current Tx lock mode : X , Old Tx lock mode : S ,No of Transactions Waiting : 0 
+:::Tx1 is waiting on Tx2 for object no 2 
+:::Current Tx lock mode : X , Old Tx lock mode : S ,No of Transactions Waiting : 1 
+:::Tx3 is waiting on Tx1 for object no 1 
+Thread 1 completed with ret value: 0

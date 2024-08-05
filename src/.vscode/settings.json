@@ -1,0 +1,28 @@
+{
+  "files.associations": {
+    "zgt_tx.C": "cpp",
+    "zgt_ht.C": "cpp",
+    "zgt_test.C": "cpp",
+    "zgt_tm.C": "cpp",
+    "zgt_semaphore.C": "cpp",
+    "*.tcc": "cpp",
+    "string": "cpp",
+    "unordered_map": "cpp",
+    "string_view": "cpp",
+    "system_error": "cpp",
+    "array": "cpp",
+    "functional": "cpp",
+    "tuple": "cpp",
+    "type_traits": "cpp",
+    "utility": "cpp",
+    "algorithm": "cpp",
+    "memory": "cpp",
+    "random": "cpp",
+    "fstream": "cpp",
+    "initializer_list": "cpp",
+    "istream": "cpp",
+    "numeric": "cpp",
+    "ostream": "cpp",
+    "streambuf": "cpp"
+  }
+}

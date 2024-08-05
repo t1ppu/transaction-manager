@@ -1,0 +1,183 @@
+
+Initializing the TM
+
+Values of i, r, x, and y are: 1, 0.987158, 9871.578170, 9871
+
+Values of i, r, x, and y are: 2, 0.122530, 1225.299817, 1225
+
+Values of i, r, x, and y are: 3, 0.642377, 6423.772862, 6423
+
+Values of i, r, x, and y are: 4, 0.910300, 9102.999377, 9102
+
+Values of i, r, x, and y are: 5, 0.545704, 5457.038963, 5457
+
+Values of i, r, x, and y are: 6, 0.678754, 6787.536005, 6787
+
+Values of i, r, x, and y are: 7, 0.393280, 3932.801681, 3932
+
+Values of i, r, x, and y are: 8, 0.264369, 2643.685923, 2643
+
+Values of i, r, x, and y are: 9, 0.687645, 6876.447932, 6876
+
+Values of i, r, x, and y are: 10, 0.999114, 9991.139052, 9991
+
+leaving TM initialization
+// serial history
+// serial history
+// 2 transactions
+// 2 transactions
+// same disjoint objects accessed
+// same disjoint objects accessed
+// multiple times
+// multiple times
+Log disj_multi_accesses.log
+Log file name:disj_multi_accesses.log
+
+entering openlog
+
+Given log file name: disj_multi_accesses.log
+leaving openlog
+BeginTx 1 W
+BeginTx : 1
+
+TxType : W
+
+
+creating BeginTx thread for Tx: 1
+
+finished creating BeginTx thread for Tx: 1
+Read    1 1
+Read : 1 : 1
+
+
+creating TxRead thread for Tx: 1
+
+exiting TxRead thread create for Tx: 1
+Read    1 2
+Read : 1 : 2
+
+
+creating TxRead thread for Tx: 1
+
+exiting TxRead thread create for Tx: 1
+Write   1 3
+Write : 1 : 3
+
+
+creating TxRead thread for Tx: 1
+
+exiting Txwrite thread create for Tx: 1
+Write   1 4
+Write : 1 : 4
+
+
+creating TxRead thread for Tx: 1
+
+exiting Txwrite thread create for Tx: 1
+read    1 1
+Read : 1 : 1
+
+
+creating TxRead thread for Tx: 1
+
+exiting TxRead thread create for Tx: 1
+write   1 2
+Write : 1 : 2
+
+
+creating TxRead thread for Tx: 1
+
+exiting Txwrite thread create for Tx: 1
+write   1 4
+Write : 1 : 4
+
+
+creating TxRead thread for Tx: 1
+same tx:1 holding lock
+exiting Txwrite thread create for Tx: 1
+write   1 4
+Write : 1 : 4
+
+
+creating TxRead thread for Tx: 1
+same tx:1 holding lock
+exiting Txwrite thread create for Tx: 1
+commit 1
+Commit : 1
+
+
+creating Txcommit thread for Tx: 1
+same tx:1 holding lock
+exiting Txcommit thread create for Tx: 1
+begintx 2 W
+BeginTx : 2
+
+TxType : W
+
+
+creating BeginTx thread for Tx: 2
+same tx:1 holding lock
+finished creating BeginTx thread for Tx: 2
+read    2 5
+Read : 2 : 5
+
+
+creating TxRead thread for Tx: 2
+
+exiting TxRead thread create for Tx: 2
+write   2 5
+Write : 2 : 5
+
+
+creating TxRead thread for Tx: 2
+
+exiting Txwrite thread create for Tx: 2
+write   2 6
+Write : 2 : 6
+
+
+creating TxRead thread for Tx: 2
+
+exiting Txwrite thread create for Tx: 2
+read    2 6
+Read : 2 : 6
+
+
+creating TxRead thread for Tx: 2
+
+exiting TxRead thread create for Tx: 2
+same tx:2 holding lockcommit  2
+Commit : 2
+
+
+creating Txcommit thread for Tx: 2
+
+exiting Txcommit thread create for Tx: 2
+end all
+Release all resources and exit:
+
+
+Entering End of schedule thread with thrNum: 16
+Wait for threads and cleanup
+Thread 0 completed with ret value: 0
+Thread 1 completed with ret value: 0
+Thread 2 completed with ret value: 0
+Thread 3 completed with ret value: 0
+Thread 4 completed with ret value: 0
+Thread 5 completed with ret value: 0
+Thread 6 completed with ret value: 0
+Thread 7 completed with ret value: 0
+Thread 8 completed with ret value: 0
+Thread 9 completed with ret value: 0
+Thread 10 completed with ret value: 0
+Thread 11 completed with ret value: 0
+Thread 12 completed with ret value: 0
+Thread 13 completed with ret value: 0
+same tx:2 holding lockThread 14 completed with ret value: 0
+Thread 15 completed with ret value: 0
+ALL threads finished their work
+Releasing mutexes and condpool
+Relasing all semaphores
+endTm completed
+
+Finished end of schedule thread: endTm

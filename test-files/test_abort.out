@@ -1,0 +1,76 @@
+// simple deadlock test case
+// simple deadlock test case
+// Two write transactions
+// Two write transactions
+log test_abort.log
+Log file name:test_abort.log
+
+// op	Tx#	type
+// op	Tx#	type
+// op	Tx#	Obj
+// op	Tx#	Obj
+BeginTx 1 W
+BeginTx : 1
+
+TxType : W
+
+read 1 6
+Read : 1 : 6
+
+write 1 7
+Write : 1 : 7
+
+write 1 7
+Write : 1 : 7
+
+read 1 6
+Read : 1 : 6
+
+begintx 2 W
+BeginTx : 2
+
+TxType : W
+
+read 2 8
+Read : 2 : 8
+
+write 2 7
+Write : 2 : 7
+
+abort 2
+Abort : 2
+
+begintx 3 R
+BeginTx : 3
+
+TxType : R
+
+read 3 4
+Read : 3 : 4
+
+write 3 5
+Write : 3 : 5
+
+read 3 9
+Read : 3 : 9
+
+commit 3
+Commit : 3
+
+commit 1
+Commit : 3
+
+end all
+Release all resources and exit:
+
+Wait for threads and cleanup
+Thread 0 completed with ret value: 0
+8 added to hash table for tx 2
+4 added to hash table for tx 3
+6 added to hash table for tx 1
+7 added to hash table for tx 2
+5 added to hash table for tx 3
+Thread 1 completed with ret value: 0
+lock being held by a different tx(2) for obj 7
+9 added to hash table for tx 3
+done---done---
